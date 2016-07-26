@@ -62,10 +62,11 @@ use yii\bootstrap\Nav;
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <?=Html::a('Profile',['/user/settings/profile'],['class' => 'btn btn-default btn-flat'])?>
+                                <?=\Yii::t('app', 'main')?>
+                                <?=Html::a(\Yii::t('user', 'Profile settings'),['/user/settings/profile'],['class' => 'btn btn-default btn-flat'])?>
                             </div>
                             <div class="pull-right">
-                                <?=Html::a('Sign out',['/user/security/logout'],['data-method' => 'post', 'class' => 'btn btn-default btn-flat'])?>
+                                <?=Html::a(\Yii::t('user', 'Logout'),['/user/security/logout'],['data-method' => 'post', 'class' => 'btn btn-default btn-flat'])?>
                             </div>
                         </li>
                     </ul>

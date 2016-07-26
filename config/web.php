@@ -4,6 +4,10 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name' => 'Online Office System',
+    'sourceLanguage' => 'en',
+    'language' => 'ru',
+    //'language' => 'de',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
@@ -33,6 +37,20 @@ $config = [
 ],
     */
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'user' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                      
+                        'app/error' => 'error.php',
+                        '@vendor/dektrium/yii2-user/'=>'user.php',
+                    ],
+                ],
+            ],
+        ],
         'view' => [
             'theme' => [
                 'pathMap' => [

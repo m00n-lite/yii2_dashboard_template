@@ -20,27 +20,15 @@ use yii\helpers\Html;
             <div class="pull-left info">
                 <p><?=Yii::$app->user->identity->profile->name.' '.Yii::$app->user->identity->profile->surname;?></p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href="#"><i class="fa fa-circle text-success"></i> <?=\Yii::t('user', 'Online')?></a>
             </div>
         </div>
-
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
+        <? if(Yii::$app->user->identity->getIsAdmin()):?>
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label' => 'Admin Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Users', 'icon' => 'fa fa-users', 'url' => ['/user/admin/index']],
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
@@ -74,7 +62,41 @@ use yii\helpers\Html;
                 ],
             ]
         ) ?>
-
+      <? endif;?>
+      <?= dmstr\widgets\Menu::widget(
+          [
+              'options' => ['class' => 'sidebar-menu'],
+              'items' => [
+                  ['label' => 'Menu', 'options' => ['class' => 'header']],
+                  [
+                      'label' => 'Werbung',
+                      'icon' => 'fa fa-share',
+                      'url' => '#',
+                      'items' => [
+                          ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
+                          ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
+                          [
+                              'label' => 'Level One',
+                              'icon' => 'fa fa-circle-o',
+                              'url' => '#',
+                              'items' => [
+                                  ['label' => 'Level Two', 'icon' => 'fa fa-circle-o', 'url' => '#',],
+                                  [
+                                      'label' => 'Level Two',
+                                      'icon' => 'fa fa-circle-o',
+                                      'url' => '#',
+                                      'items' => [
+                                          ['label' => 'Level Three', 'icon' => 'fa fa-circle-o', 'url' => '#',],
+                                          ['label' => 'Level Three', 'icon' => 'fa fa-circle-o', 'url' => '#',],
+                                      ],
+                                  ],
+                              ],
+                          ],
+                      ],
+                  ],
+              ],
+          ]
+      ) ?>
     </section>
 
 </aside>

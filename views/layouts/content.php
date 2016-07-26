@@ -38,6 +38,6 @@ use dmstr\widgets\Alert;
     <div class="pull-right hidden-xs">
         <b>Version</b> 2.0
     </div>
-    <strong>Copyright &copy; 2016-2016 <a href="/">Baumpflege Berlin-Brandenburg</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="/">Baumpflege Berlin-Brandenburg</a>.</strong> All rights
     reserved.
 </footer>
